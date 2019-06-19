@@ -4,13 +4,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>软件姬</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <title>软件姬</title>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;}
+        .col-6 img{
+            width:200px;height:100px;
+        }
+        .box-sizing{
+            box-sizing: border-box;
+        }
+        .input_width{
+            width:400px;height:45px;
+            border-radius: 4px;
+           border-color:#ddd;
+        }
+        .search{
+            display: inline-block;
+            width:100px;height: 45px;
+            text-align: center;
+            line-height: 45px;
+            background:#00f;
+            border-radius: 4px;
+            transition:all 1s;
+        }
+        .search:hover{
+            background:#0ff;
+        }
+        .list-group{
+            flex-direction: row;
+            width:100%;margin:0 auto;
+            background:#00f;
+        }
+        .nav{
+            display:inline-block;
+            width:10%;height:45px;
+            text-align:center;
+            line-height:45px;
+        }
+        .border_radius{
+            border-radius: 4px;
+            justify-content:space-around;
+            display:none;
+            transition:all 2s;
+        }
+        #title:hover .border_radius{
+            display:flex;
+        }
+        a{
+            color:#fff;
+        }
+    </style>
 </head>
 <body>
-    <h1>余思敏是hp</h1>
+    <div class="container">
+        <div id="top">
+        <div class="row">
+            <div class="col-6">
+                <img src="img/ruanjianji.png" alt="">
+            </div>
+            <div class="col-6 pt-5 box-sizing">
+                <input placeholder="请输入关键字" class="input_width" type="text"><a class="search" href="#"><i class="fa fa-search"></i></a>
+            </div>
+        </div>
+        </div>
+        <div id="nav">
+            <div class="row">
+                <div id="title" class="col-12 mt-3">
+                    <span class="btn btn-inline-block">首页</span>
+                    <ul class="list-unstyled list-group border_radius">
+                        <li class="nav"><a href="#">首页</a></li>
+                        <li class="nav"><a href="#">PC应用</a></li>
+                        <li class="nav"><a href="#">安卓应用</a></li>
+                        <li class="nav"><a href="#">PC游戏</a></li>
+                        <li class="nav"><a href="#">安卓游戏</a></li>
+                        <li class="nav"><a href="#">苹果应用</a></li>
+                        <li class="nav"><a href="#">Mac应用</a></li>
+                    </ul>
+                    <span>PC应用</span>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
