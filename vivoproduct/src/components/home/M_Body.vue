@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>hello Word</p>
+    中间
   </div>
 </template>
 <script>
