@@ -95,7 +95,7 @@ export default {
   .parent2>.child{
     width:70%;
     display:flex;
-    justify-content: space-between;
+    justify-content: space-around;
   }
    .parent2>.child>ul{
      width:100%;
