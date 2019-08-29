@@ -1,37 +1,73 @@
 <template>
-  <div class="content">
-    <div class="parent">
-      <div class="child1">
-      <ul>
-        <li><a href="">品牌</a></li>
-        <li><a href="">Funtouch OS</a></li>
-        <li><a href="">体验店</a></li>
-        <li><a href="">政企业务</a></li>
-        <li><a href="">社区</a></li>
-      </ul>
+  <div>
+    <div id="pc">
+      <div class="content">
+        <div class="childs">
+          <ul>
+            <li><a href="">品牌</a></li>
+            <li><a href="">Funtouch OS</a></li>
+            <li><a href="">体验店</a></li>
+            <li><a href="">政企业务</a></li>
+            <li><a href="">社区</a></li>
+          </ul>
+        </div>
+        <div class="childs2">
+         <p>
+          <a style="margin-right:15px;" href="">购物车</a>
+          <a style="margin-right:10px;" href="">登录</a>
+          <i>|</i>
+          <a style="margin-left:10px;" href="">注册</a>
+         </p>
+        </div>
     </div>
-    <div class="child2">
-      <a href="javascript:;">购物车</a>
-      <a href="javascript:;">登录</a>
-      <i style="color:#ccc">|</i>
-      <a href="javascript:;">注册</a>
-    </div>
-    </div>
-    <div class="parent2">
-      <div class="child">
-        <i><img src="../../assets/vivo.png" alt=""></i>
-        <ul>  
-          <li><a href="">iQOO专区</a></li>
-          <li><a href="">NEX系列</a></li>
-          <li><a href="">X系列</a></li>
-          <li><a href="">S系列</a></li>
-          <li><a href="">Z系列</a></li>
-          <li><a href="">Y系列</a></li>
-          <li><a href="">U系列</a></li>
+    <div class="content2">
+      <div class="childs3">
+        <ul id="u1" >
+          <li><img src="../../assets/vivo.png" alt=""></li>
+          <li><a class="lg" href="">iQOO专区</a><a class="md" href="">iQOO</a></li>
+          <li><a class="lg" href="">NEX系列</a><a class="md" href="">NEX</a></li>
+          <li><a class="lg" href="">X系列</a><a class="md" href="">X</a></li>
+          <li><a class="lg" href="">S系列</a><a class="md" href="">S</a></li>
+          <li><a class="lg" href="">Z系列</a><a class="md" href="">Z</a></li>
+          <li><a class="lg" href="">Y系列</a><a class="md" href="">Y</a></li>
+          <li><a class="lg" href="">U系列</a><a class="md" href="">U</a></li>
           <li><a href="">商城</a></li>
           <li><a href="">服务</a></li>
+          <li><img src="../../assets/搜索.png" alt=""></li>
         </ul>
-        <span><img src="../../assets/搜索.png" alt=""></span>
+      </div>
+    </div>
+    </div>
+    <div id="phone" style="display:none;">
+      <div class="container">
+        <img @click="show()" style="width:50px;height:50px;" src="../../assets/收起按钮icon.png" alt="">
+        <img src="../../assets/vivo.png" alt="">
+        <img style="width:50px;height:50px;" src="../../assets/购物.png" alt="">
+      </div>
+      <div id="item-content">
+        <ul class="item-child">
+        <li>
+          <a href="">iQOO专区</a>  <img src="" alt="">
+        </li>
+        <li>
+          <a href="">NEX系列</a> <img src="" alt="">
+        </li>
+        <li>
+          <a href="">X系列</a> <img src="" alt="">
+        </li>
+        <li>
+          <a href="">S系列</a> <img src="" alt="">
+        </li>
+        <li>
+          <a href="">Z系列</a> <img src="" alt="">
+        </li>
+        <li>
+          <a href="">Y系列</a> <img src="" alt="">
+        </li>
+        <li>
+          <a href="">U系列</a> <img src="" alt="">
+        </li>
+      </ul>
       </div>
     </div>
   </div>
@@ -40,71 +76,126 @@
 export default {
   data() {
     return {
-      
+       screenWidth: document.body.clientWidth
     }
   },
+  methods: {
+    show(){
+      var div=document.getElementById("item-content");
+      console.log(div.className);
+      if(div.style.display=="none"){
+        div.style.display="block";
+      }else{
+        div.style.display="none";
+      }
+    }
+  },
+
 }
 </script>
 <style scoped>
-  .child1>ul>li>a:hover{
-    color:#848484;
-    transition:color .2s ease-in-out;
+@media screen and (min-width:1025px){
+  #u1 .lg{
+    display: inline;
   }
-  .child2>a:hover{
-    color:#848484;
-    transition:color .2s ease-in-out;
+  #u1 .md{
+    display: none;
   }
-  ul{
-    list-style:none;
-    margin: 0;
+}
+@media screen and (min-width:768px) and (max-width:1024px){
+  #u1 .lg{
+    display: none;
   }
- .parent a{
-    color:#ccc;
-    text-decoration: none;
+  #u1 .md{
+    display: inline;
   }
-  .parent{
-    display:flex;
-    justify-content:space-between;
-    background: #333;
-    width:100%;
-    padding:8px 0;
+}
+@media screen and (max-width:767px) {
+  #pc{
+    display: none;
   }
-  .child1{
-    width:20%;
+  #phone{
+    display: block !important;
   }
-  .child1>ul{
-    display:flex;
-    justify-content: space-around;
-    color:#ccc;
-    font-size:12px;
-    align-items: center;
-  }
-  .child2{
-    margin-right:20px;
-    width:10%;
-    font-size:12px;
-    display:flex;
-    justify-content: space-around;
-  }
-  .parent2{
-    width:100%;
-    display:flex;
-    justify-content:center;
-    background:#ccc;
-  }
-  .parent2>.child{
-    width:70%;
-    display:flex;
-    justify-content: space-around;
-  }
-   .parent2>.child>ul{
-     width:100%;
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-   }
-   .parent2 a{
-      color:#fff;
-    text-decoration: none;
-   }
+}
+#item-content{
+ display:none;
+}
+#item-content>.item-child{
+  width: 100%;
+  padding:0;
+  display: flex;
+  flex-direction: column;
+  z-index: 999;
+}
+.container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #333;
+  padding:0 1rem;
+}
+.show{
+  display: block !important;
+}
+.hiden{
+  display:none !important;
+}
+ .childs a,.childs2 a{
+   color:#ccc;
+  text-decoration:none;
+  transition:color .2s ease-in-out;
+ }
+ .childs a:hover,.childs2 a:hover{
+   color:#848484;
+ }
+ .childs,.childs2{
+   display: inline-block;
+ }
+ ul{
+   list-style: none;
+   display:inline-flex;
+ }
+ .childs>ul>li>a{
+   font-size:12px;
+  padding-right: 25px;
+ }
+.childs2{
+  position: absolute;
+  right:0;
+  padding-right:50px;
+}
+.content{
+  width:100%;
+  height:32px;
+  display: flex;
+  align-items:center;
+  background:#333;
+}
+.content2{
+  width:100%;
+  background:#ccc;
+  height:68px;
+}
+.content2>.childs3{
+  width:100%;
+ display:flex;
+ justify-content: center;
+}
+.content2>.childs3>ul{
+  width:70%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+margin:0;
+}
+.childs3 a{
+  color:#fff;
+  text-decoration: none;
+  font-size:18px;
+  transition:color .2s ease-in-out;
+}
+.childs3 a:hover{
+  color:rgb(38, 115, 231);
+}
 </style>
