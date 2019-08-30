@@ -21,16 +21,16 @@
         </div>
     </div>
     <div class="content2">
-      <div class="childs3">
+      <div class="childs3" @mouseleave="offHover()">
         <ul id="u1" >
           <li><img src="../../assets/vivo.png" alt=""></li>
-          <li @mouseenter="hover(1)" @mouseleave="offHover()"><a class="lg" href="">iQOO专区</a><a class="md" href="">iQOO</a></li>
-          <li @mouseenter="hover(2)" @mouseleave="offHover()"><a class="lg" href="">NEX系列</a><a class="md" href="">NEX</a></li>
-          <li @mouseenter="hover(3)" @mouseleave="offHover()"><a class="lg" href="">X系列</a><a class="md" href="">X</a></li>
-          <li @mouseenter="hover(4)" @mouseleave="offHover()"><a class="lg" href="">S系列</a><a class="md" href="">S</a></li>
-          <li @mouseenter="hover(5)" @mouseleave="offHover()"><a class="lg" href="">Z系列</a><a class="md" href="">Z</a></li>
-          <li @mouseenter="hover(6)" @mouseleave="offHover()"><a class="lg" href="">Y系列</a><a class="md" href="">Y</a></li>
-          <li @mouseenter="hover(7)" @mouseleave="offHover()"><a class="lg" href="">U系列</a><a class="md" href="">U</a></li>
+          <li @mouseenter="hover(1)" ><a class="lg" href="">iQOO专区</a><a class="md" href="">iQOO</a></li>
+          <li @mouseenter="hover(2)"><a class="lg" href="">NEX系列</a><a class="md" href="">NEX</a></li>
+          <li @mouseenter="hover(3)"><a class="lg" href="">X系列</a><a class="md" href="">X</a></li>
+          <li @mouseenter="hover(4)"><a class="lg" href="">S系列</a><a class="md" href="">S</a></li>
+          <li @mouseenter="hover(5)"><a class="lg" href="">Z系列</a><a class="md" href="">Z</a></li>
+          <li @mouseenter="hover(6)"><a class="lg" href="">Y系列</a><a class="md" href="">Y</a></li>
+          <li @mouseenter="hover(7)"><a class="lg" href="">U系列</a><a class="md" href="">U</a></li>
           <li><a href="">商城</a></li>
           <li><a href="">服务</a></li>
           <li><img src="../../assets/搜索.png" alt=""></li>
