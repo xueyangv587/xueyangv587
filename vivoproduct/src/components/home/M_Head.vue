@@ -24,17 +24,27 @@
       <div class="childs3">
         <ul id="u1" >
           <li><img src="../../assets/vivo.png" alt=""></li>
-          <li><a class="lg" href="">iQOO专区</a><a class="md" href="">iQOO</a></li>
-          <li><a class="lg" href="">NEX系列</a><a class="md" href="">NEX</a></li>
-          <li><a class="lg" href="">X系列</a><a class="md" href="">X</a></li>
-          <li><a class="lg" href="">S系列</a><a class="md" href="">S</a></li>
-          <li><a class="lg" href="">Z系列</a><a class="md" href="">Z</a></li>
-          <li><a class="lg" href="">Y系列</a><a class="md" href="">Y</a></li>
-          <li><a class="lg" href="">U系列</a><a class="md" href="">U</a></li>
+          <li @mouseenter="hover(1)" @mouseleave="offHover()"><a class="lg" href="">iQOO专区</a><a class="md" href="">iQOO</a></li>
+          <li @mouseenter="hover(2)" @mouseleave="offHover()"><a class="lg" href="">NEX系列</a><a class="md" href="">NEX</a></li>
+          <li @mouseenter="hover(3)" @mouseleave="offHover()"><a class="lg" href="">X系列</a><a class="md" href="">X</a></li>
+          <li @mouseenter="hover(4)" @mouseleave="offHover()"><a class="lg" href="">S系列</a><a class="md" href="">S</a></li>
+          <li @mouseenter="hover(5)" @mouseleave="offHover()"><a class="lg" href="">Z系列</a><a class="md" href="">Z</a></li>
+          <li @mouseenter="hover(6)" @mouseleave="offHover()"><a class="lg" href="">Y系列</a><a class="md" href="">Y</a></li>
+          <li @mouseenter="hover(7)" @mouseleave="offHover()"><a class="lg" href="">U系列</a><a class="md" href="">U</a></li>
           <li><a href="">商城</a></li>
           <li><a href="">服务</a></li>
           <li><img src="../../assets/搜索.png" alt=""></li>
         </ul>
+        <div class="u1_hiden">
+          <div>
+            <img src="../../assets/phone.png" alt="">
+            <p>iQOO新品</p>
+          </div>
+          <div style="padding-top:20px;padding-left:20px;">
+            <p class="my_btn">全部iQOO机型</p>
+            <p class="my_btn">对比iQOO机型</p>
+          </div>
+        </div>
       </div>
     </div>
     </div>
@@ -47,7 +57,7 @@
       <div id="item-content">
         <ul class="item-child">
         <li>
-          <a href="">iQOO专区</a>  <img src="" alt="">
+          <a href="">iQOO专区</a> <img src="" alt="">
         </li>
         <li>
           <a href="">NEX系列</a> <img src="" alt="">
@@ -76,24 +86,49 @@
 export default {
   data() {
     return {
-       screenWidth: document.body.clientWidth
+       screenWidth: document.body.clientWidth,
+       msg:"手机详情一",
+       num:Number
     }
   },
   methods: {
     show(){
       var div=document.getElementById("item-content");
-      console.log(div.className);
       if(div.style.display=="none"){
         div.style.display="block";
       }else{
         div.style.display="none";
       }
-    }
+    },
+    hover(i){
+      this.num=i;
+      var div=document.getElementsByClassName("u1_hiden")[0];
+      var bg=document.getElementsByClassName("content2")[0];
+      bg.style.background="rgba(52,52,52,.3)";
+      
+      div.style.height="250px";
+    },
+    offHover(){
+      var div=document.getElementsByClassName("u1_hiden")[0];
+      var bg=document.getElementsByClassName("content2")[0];
+       div.style.height="0";
+       bg.style.background="rgb(26, 25, 25)";
+    }  
   },
+  computed: {
 
+  },
 }
 </script>
 <style scoped>
+.my_btn{
+
+}
+.u1_hiden{
+  display: flex;
+  height:0;
+  transition:all 0.5s;
+}
 @media screen and (min-width:1025px){
   #u1 .lg{
     display: inline;
@@ -174,20 +209,29 @@ export default {
 }
 .content2{
   width:100%;
-  background:#ccc;
-  height:68px;
+  background: rgb(26, 25, 25);
+  max-height:300px;
+  position: absolute;
+  top: 30px;
+  overflow: hidden;
 }
 .content2>.childs3{
   width:100%;
  display:flex;
+ flex-direction: column;
+ align-items: center;
  justify-content: center;
+ box-sizing: border-box;
 }
 .content2>.childs3>ul{
   width:70%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-margin:0;
+  margin:0;
+}
+.content2>.childs3>ul>li>a{
+    padding:20px 0;  
 }
 .childs3 a{
   color:#fff;
