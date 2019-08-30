@@ -104,15 +104,17 @@ export default {
       this.num=i;
       var div=document.getElementsByClassName("u1_hiden")[0];
       var bg=document.getElementsByClassName("content2")[0];
-      bg.style.background="rgba(52,52,52,.3)";
-      
+      bg.style.background="rgba(240, 237, 237, 0.7)";
+      div.style.transition="background,height .3s linear";
       div.style.height="250px";
+      
     },
     offHover(){
       var div=document.getElementsByClassName("u1_hiden")[0];
       var bg=document.getElementsByClassName("content2")[0];
+      div.style.transition="background,height .3s linear";
        div.style.height="0";
-       bg.style.background="rgb(26, 25, 25)";
+       bg.style.background="rgba(52,52,43,.3)";
     }  
   },
   computed: {
@@ -127,7 +129,7 @@ export default {
 .u1_hiden{
   display: flex;
   height:0;
-  transition:all 0.5s;
+  transition: all .3s linear;
 }
 @media screen and (min-width:1025px){
   #u1 .lg{
@@ -209,11 +211,12 @@ export default {
 }
 .content2{
   width:100%;
-  background: rgb(26, 25, 25);
+  background:rgba(52,52,43,.3);
   max-height:300px;
   position: absolute;
   top: 30px;
   overflow: hidden;
+  z-index:999;
 }
 .content2>.childs3{
   width:100%;
