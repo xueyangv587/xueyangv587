@@ -1,29 +1,31 @@
 <template>
-  <div class="container">
-    <div class="imgs">
-      <img style="max-height:680px;max-width:2560px;" src="../../assets/轮播图2修正.jpg" alt="">
-    </div>
+  <div>
+    <imgs></imgs>
   </div>
 </template>
 <script>
+  import Imgs from "./imgs.vue"  //引入轮播图模块
 export default {
+
+  components:{
+   "imgs":Imgs
+  },
   data() {
     return {
       
     }
   },
+  computed: {
+   
+  },
+  mounted() {
+   
+  }, 
+  methods: {
+
+  },
 }
 </script>
 <style scoped>
-.container{
-  display: flex;
-}
-  .imgs{
-    display: flex;
-    width: 100%;
-  }
-  .imgs>img{
-    height:100%;
-    width:100%;
-  }
+
 </style>
