@@ -1,6 +1,6 @@
 <template>
  <!-- 轮播组件的位置 -->
-   <div>
+   <div class="container">
      <slider-show :slides="slides" :inv="invTime"></slider-show>
    </div>
 </template>
@@ -36,5 +36,5 @@ export default {
 }
 </script>
 <style scoped>
-  
+
 </style>
