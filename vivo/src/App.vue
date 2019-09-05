@@ -1,17 +1,16 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <home>
+    <home />
   </div>
 </template>
 
 <script>
-import home from './components/home/home'
+import Home from './components/home/home.vue'
 
 export default {
   name: 'app',
   components: {
-    home
+    Home
   }
 }
 </script>
