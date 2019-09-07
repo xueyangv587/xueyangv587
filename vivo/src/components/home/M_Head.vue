@@ -23,7 +23,7 @@
     <div class="content2">
       <div class="childs3" @mouseleave="offHover()">
         <ul id="u1" >
-          <li><img src="../../assets/vivo.png" alt=""></li>
+          <li><a href="http://127.0.0.1:8080/#/home"><img src="../../assets/vivo.png" alt=""></a></li>
           <li @mouseenter="hover(1)" ><a class="lg" href="">iQOO专区</a><a class="md" href="">iQOO</a></li>
           <li @mouseenter="hover(2)"><a class="lg" href="">NEX系列</a><a class="md" href="">NEX</a></li>
           <li @mouseenter="hover(3)"><a class="lg" href="">X系列</a><a class="md" href="">X</a></li>
@@ -31,18 +31,18 @@
           <li @mouseenter="hover(5)"><a class="lg" href="">Z系列</a><a class="md" href="">Z</a></li>
           <li @mouseenter="hover(6)"><a class="lg" href="">Y系列</a><a class="md" href="">Y</a></li>
           <li @mouseenter="hover(7)"><a class="lg" href="">U系列</a><a class="md" href="">U</a></li>
-          <li><a href="">商城</a></li>
+          <li><a href="http://127.0.0.1:8080/#/product">商城</a></li>
           <li><a href="">服务</a></li>
           <li><img src="../../assets/搜索.png" alt=""></li>
         </ul>
         <div class="u1_hiden">
-          <div>
-            <img src="../../assets/phone.png" alt="">
+          <div style="margin:0 30px;" v-for="(item,i) of list" :key="i">
+            <img style="width:68px;height:160px;" :src="'http://127.0.0.1:3000/'+item.sm" alt="">
             <p>iQOO新品</p>
           </div>
           <div style="padding-top:20px;padding-left:20px;">
-            <p class="my_btn">全部iQOO机型</p>
-            <p class="my_btn">对比iQOO机型</p>
+            <p class="my_btn">全部{{phone}}机型</p>
+            <p class="my_btn">对比{{phone}}机型</p>
           </div>
         </div>
       </div>
@@ -88,7 +88,8 @@ export default {
     return {
        screenWidth: document.body.clientWidth,
        msg:"手机详情一",
-       num:Number
+      list:[],
+      phone:""
     }
   },
   methods: {
@@ -101,13 +102,17 @@ export default {
       }
     },
     hover(i){
-      this.num=i;
       var div=document.getElementsByClassName("u1_hiden")[0];
       var bg=document.getElementsByClassName("content2")[0];
       bg.style.background="rgba(240, 237, 237, 0.7)";
       div.style.transition="background,height .3s linear";
-      div.style.height="250px";
-      
+      div.style.height="250px"; 
+      var url="home?laptop_id="
+      this.axios.get(url+i).then(result=>{
+         console.log(result.data.data.result2);
+        this.list=result.data.data.result2;
+        this.phone=result.data.data.result2[0].family;
+      })
     },
     offHover(){
       var div=document.getElementsByClassName("u1_hiden")[0];
@@ -115,7 +120,13 @@ export default {
       div.style.transition="background,height .3s linear";
        div.style.height="0";
        bg.style.background="rgba(52,52,43,.3)";
-    }  
+    },
+  },
+  created() {
+   
+  },
+  watch: {
+    
   },
   computed: {
 
@@ -123,8 +134,8 @@ export default {
 }
 </script>
 <style scoped>
-.my_btn{
-
+ul,p{
+  margin:0;
 }
 .u1_hiden{
   display: flex;

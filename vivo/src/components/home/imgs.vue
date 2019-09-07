@@ -2,6 +2,7 @@
  <!-- 轮播组件的位置 -->
    <div class="container">
      <slider-show :slides="slides" :inv="invTime"></slider-show>
+     <div>{{imgurl}},{{imgurl1}},{{imgurl2}}</div>
    </div>
 </template>
 
@@ -13,6 +14,9 @@ export default {
   },
   data () {
     return {
+      imgurl:"",
+      imgurl1:"",
+      imgurl2:"",
       invTime: 2000,
       slides: [
         {
@@ -32,7 +36,24 @@ export default {
        }
     ]
    }
- }
+ },
+ methods: {
+    lodeMore(){
+    var url="home"
+    this.axios.get(url).then(result=>{
+      let list=result.data.data;
+      for(var i=0;i<list.length;i++){
+        console.log(list[i].img);
+        this.imgurl=list[0].img;
+        this.imgurl1=list[1].img;
+        this.imgurl2=list[2].img;
+      }
+    })
+  }
+ },
+ created() {
+   this.lodeMore();
+ },
 }
 </script>
 <style scoped>

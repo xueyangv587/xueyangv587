@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="content mt-5">
     <div class="container">
         <div>
       <ul><p>热门链接</p>

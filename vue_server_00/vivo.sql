@@ -35,7 +35,8 @@ CREATE TABLE vivo_laptop(
 CREATE TABLE vivo_laptop_pic(
   pid INT PRIMARY KEY AUTO_INCREMENT,
   laptop_id INT,              #手机编号
-  sm VARCHAR(128)          #小图片路径
+  sm VARCHAR(128),          #小图片路径
+  family VARCHAR(24)     #手机型号
 );
 
 /****首页轮播广告商品****/
@@ -66,27 +67,27 @@ INSERT INTO vivo_laptop VALUES
 
 /*手机图片*/
 INSERT INTO vivo_laptop_pic VALUES
-(NULL,1,'img/iQOO.png'),
-(NULL,1,'img/iQOO1.png'),
-(NULL,1,'img/iQOO2.png'),
-(NULL,2,'img/NEX.png'),
-(NULL,2,'img/NEX旗舰版.png'),
-(NULL,3,'img/X系列.png'),
-(NULL,3,'img/X系列1.png'),
-(NULL,3,'img/X系列23.png'),
-(NULL,3,'img/X系列23s.png'),
-(NULL,4,'img/S系列1.png'),
-(NULL,4,'img/S系列2.png'),
-(NULL,5,'img/Z系列.png'),
-(NULL,5,'img/Z系列2.png'),
-(NULL,5,'img/Z系列3.png'),
-(NULL,5,'img/Z系列4.png'),
-(NULL,5,'img/Z系列5.png'),
-(NULL,6,'img/Y系列.png'),
-(NULL,6,'img/Y系列1.png'),
-(NULL,6,'img/Y系列2.png'),
-(NULL,6,'img/Y系列3.png'),
-(NULL,7,'img/U系列.png');
+(NULL,1,'img/iQOO.png','iQOO'),
+(NULL,1,'img/iQOO1.png','iQOO'),
+(NULL,1,'img/iQOO2.png','iQOO'),
+(NULL,2,'img/NEX.png','NEX'),
+(NULL,2,'img/NEX旗舰版.png','NEX'),
+(NULL,3,'img/X系列.png','X系列'),
+(NULL,3,'img/X系列1.png','X系列'),
+(NULL,3,'img/X系列23.png','X系列'),
+(NULL,3,'img/X系列23s.png','X系列'),
+(NULL,4,'img/S系列1.png','S系列'),
+(NULL,4,'img/S系列2.png','S系列'),
+(NULL,5,'img/Z系列.png','Z系列'),
+(NULL,5,'img/Z系列2.png','Z系列'),
+(NULL,5,'img/Z系列3.png','Z系列'),
+(NULL,5,'img/Z系列4.png','Z系列'),
+(NULL,5,'img/Z系列5.png','Z系列'),
+(NULL,6,'img/Y系列.png','Y系列'),
+(NULL,6,'img/Y系列1.png','Y系列'),
+(NULL,6,'img/Y系列2.png','Y系列'),
+(NULL,6,'img/Y系列3.png','Y系列'),
+(NULL,7,'img/U系列.png','U系列');
 
 /****首页轮播广告商品****/
 INSERT INTO vivo_index_carousel VALUES

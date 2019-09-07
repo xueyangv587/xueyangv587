@@ -1,6 +1,7 @@
 <template>
   <div>
-    <imgs></imgs>
+    <!-- <imgs></imgs> -->
+    <carousel></carousel>
     <div class="img">
         <div style="margin-right:10px;" class="my_title">
           <img src="../../assets/图片1.jpg" alt="">
@@ -31,7 +32,7 @@
           </div>
         </div>
       </div>
-      <div class="img_f">
+      <div class="img_f mt-1">
         <img src="../../assets/bg1.jpg" alt="">
         <div class="title">
           <div>
@@ -44,7 +45,7 @@
         </div>
       </div>
     </div>
-    <div class="hover_img">
+    <div class="hover_img mt-2">
       <div class="div1">
         <img src="../../assets/hover1.jpg" alt="">
         <span>
@@ -77,15 +78,17 @@
   </div>
 </template>
 <script>
-  import Imgs from "./imgs.vue"  //引入轮播图模块
+  // import Imgs from "./imgs.vue"  //引入轮播图模块
+  import Carousel from './Carousel.vue'
 export default {
 
   components:{
-   "imgs":Imgs
+  //  "imgs":Imgs
+  "carousel":Carousel
   },
   data() {
     return {
-      
+    
     }
   },
   computed: {
@@ -95,7 +98,10 @@ export default {
    
   }, 
   methods: {
-
+   
+  },
+  created() {
+  
   },
 }
 </script>
@@ -115,6 +121,7 @@ export default {
   left:25%;top:25%;
 }
 .img{
+  margin-top:0.5rem;
   display:flex;
 width:100%;
 height:auto;
