@@ -2,11 +2,13 @@
   <div>
     <mhead></mhead>
     <pcarousel></pcarousel>
+    <pbody></pbody>
   </div>
 </template>
 <script>
 import Mhead from '../home/M_Head.vue'
 import Pcarousel from './Pcarousel.vue'
+import productBody from './product-body.vue'
 export default {
   data() {
     return {
@@ -15,7 +17,8 @@ export default {
   },
   components:{
     "mhead":Mhead,
-    "pcarousel":Pcarousel
+    "pcarousel":Pcarousel,
+    "pbody":productBody
   }
 }
 </script>

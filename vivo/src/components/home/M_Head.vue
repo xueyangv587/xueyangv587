@@ -109,7 +109,7 @@ export default {
       div.style.height="250px"; 
       var url="home?laptop_id="
       this.axios.get(url+i).then(result=>{
-         console.log(result.data.data.result2);
+        console.log(result);
         this.list=result.data.data.result2;
         this.phone=result.data.data.result2[0].family;
       })

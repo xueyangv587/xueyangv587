@@ -58,4 +58,23 @@ server.get("/home",(req,res)=>{
         })
     })
 })
-//获取手机图片
+//获取商品数据
+server.get("/product",(req,res)=>{
+    var results={
+        result1:[],
+        result2:[]
+    };
+    var class_id=req.query.class_id;
+    var sql="SELECT * FROM snap_up";
+    pool.query(sql,(err,result)=>{
+        if(err) throw err;
+        results.result1=result;
+        var sql1="SELECT * FROM product_details WHERE class_id=?";
+        pool.query(sql1,[class_id],(err,result)=>{
+            if(err) throw err;
+            results.result2=result;
+            res.send({code:1,data:results});
+        })
+    })
+})
+
