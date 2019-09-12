@@ -3,9 +3,9 @@
     <div class="container">
       <div id="content" class="d-flex">
       <div><a href="#"><img src="../../assets/product/card.jpg" alt=""></a></div>
-      <div><a href="#"><img src="../../assets/product/card1.jpg" alt=""></a></div>
+      <div class="mx-3"><a href="#"><img src="../../assets/product/card1.jpg" alt=""></a></div>
       <div><a href="#"><img src="../../assets/product/card2.jpg" alt=""></a></div>
-      <div><a href="#"><img src="../../assets/product/card3.jpg" alt=""></a></div>
+      <div class="ml-3"><a href="#"><img src="../../assets/product/card3.jpg" alt=""></a></div>
     </div>
     <div class="content">
       <span class="d-flex">
@@ -15,7 +15,7 @@
     </div>
       <div class="prent">
         <div class="img_carousel">
-        <li v-for="(item,i) of list" :key="i">
+        <li id="lunbo" v-for="(item,i) of list" :key="i">
           <img class="mt-5" style="width:172px;height:172px;" :src="'http://127.0.0.1:3000/'+item.img" alt="">
           <span>
             <p class="px-4">{{item.sname}}</p>
@@ -24,8 +24,8 @@
           </span>
         </li>
       </div>
-       <span class="icon_previous"><img src="../../assets/左箭头.png" alt=""></span>
-        <span class="icon_next"><img src="../../assets/右箭头.png" alt=""></span>
+       <span @click="previous()" class="icon_previous"><img src="../../assets/左箭头.png" alt=""></span>
+        <span @click="next()" class="icon_next"><img src="../../assets/右箭头.png" alt=""></span>
       </div>
     </div>
   </div>
@@ -39,9 +39,28 @@ export default {
       m:"",
       s:"",
       list:[]
+     
     }
   },
   methods: {
+    previous(){
+      var div=document.getElementsByClassName("img_carousel")[0]
+      console.log(div);
+      var lis=div.getElementsByTagName("li");
+      console.log(lis);
+      for(let i=0;i<lis.length;i++){
+        lis[i].style.marginLeft="-100px";
+      }
+      // var mgleft=292;
+      // if(li.style.marginLeft){
+      //   li.style.marginLeft=parseInt(li.style.marginLeft)+mgleft+"px";
+      // }else{
+      //   li.style.marginLeft=mgleft+"px";
+      // }
+    },
+    next(){
+      alert("下一列");
+    },
     countTime(){
       //获取当前时间
       var date= new Date();
@@ -81,9 +100,13 @@ export default {
 .prent{
   position: relative;
 }
+.icon_next{
+  position: absolute;
+  left:1210px;top:200px;
+}
 .icon_previous{
   position: absolute;
-  left:0;top:0;
+  left:-40px;top:200px;
 }
 .img_carousel{
   margin-top:10px;
@@ -91,8 +114,8 @@ export default {
   display: flex;
   overflow: hidden;
 }
-.img_carousel>li:nth-child(1),li:nth-child(2),li:nth-child(3){
-  margin-right:5px;
+.img_carousel>li{
+  margin-right:10px;
 }
 .img_carousel>li{
   display:inline-block;
@@ -139,13 +162,7 @@ width:292px;
   justify-content:space-between;
   width:100%;
 }
-#content>div:nth-child(2){
-  padding:0 5px;
-}
-#content>div:nth-child(3){
-  padding-right:5px;
-}
 #content>div img{
-  width:295px;height:auto;
+  width:287px;height:auto;
 }
 </style>
