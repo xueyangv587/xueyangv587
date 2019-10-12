@@ -2,6 +2,36 @@ SET NAMES UTF8;
 DROP DATABASE IF EXISTS vivo;
 CREATE DATABASE vivo CHARSET=UTF8;
 USE vivo;
+/*精品配件*/
+CREATE TABLE boutique(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  family_id INT,  #家族编号
+  bname VARCHAR(32), #商品名称
+  bimg VARCHAR(128), #商品图片
+  btitle VARCHAR(128), #商品标题
+  bpic DECIMAL(10,2) #商品价格 
+);
+INSERT INTO boutique VALUES
+(NULL,4,'NEX原装高透保护膜','img/product/details_img/fittings/10325_1535510295231_250x250.png','有效抵抗磨损，远离刮伤，贴心呵护你的爱机','99.00'),
+(NULL,3,'vivo XE100原装耳机','img/product/details_img/music/00_1538896707288_250x250.png','品牌原装，三频均衡，音域广阔！','199.00'),
+(NULL,5,'乐心S11体脂秤','img/product/details_img/AI/9990_1564993926093_250x250.jpg','360°可活动秤脚，受力更均匀','230.00'),
+(NULL,6,'飞宇 Vimble2手持稳定器','img/product/details_img/Photo/4484_1508913199043hd_250x250.png','创新工业设计，自拍更加自由','120.00'),
+(NULL,4,'NEX原装高透保护膜','img/product/details_img/fittings/10325_1535510295231_250x250.png','有效抵抗磨损，远离刮伤，贴心呵护你的爱机','99.00'),
+(NULL,3,'vivo XE100原装耳机','img/product/details_img/music/00_1538896707288_250x250.png','品牌原装，三频均衡，音域广阔！','199.00'),
+(NULL,5,'乐心S11体脂秤','img/product/details_img/AI/9990_1564993926093_250x250.jpg','360°可活动秤脚，受力更均匀','230.00'),
+(NULL,6,'飞宇 Vimble2手持稳定器','img/product/details_img/Photo/4484_1508913199043hd_250x250.png','创新工业设计，自拍更加自由','120.00');
+/*热卖专区*/
+CREATE TABLE re_mai(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  rname VARCHAR(32), #商品名称
+  rimg VARCHAR(128),  #商品图片
+  rtitle VARCHAR(128), #商品标题
+  rpic DECIMAL(10,2)  #商品价格
+);
+INSERT INTO re_mai VALUES
+(NULL,'iQOO Pro 8GB+128GB','img/product/details_img/re_mai/10000467_1551438177210_250x250.jpg','骁龙855 Plus/44W超快闪充','3198'),
+(NULL,'iQOO Neo 6GB+128GB','img/product/details_img/re_mai/10001399_1566442828100_250x250.png','整点购加赠好礼/高通骁龙845','1898'),
+(NULL,'NEX 3 8GB+128GB','img/product/details_img/re_mai/10001072_1560500515631_250x250.jpg','新旗舰/高通骁龙855 Plus','4998');
 /*抢购数据表*/
 CREATE TABLE snap_up(
   id INT PRIMARY KEY AUTO_INCREMENT,
@@ -12,15 +42,15 @@ CREATE TABLE snap_up(
 );
 INSERT INTO snap_up VALUES
 (NULL,'iQOO Pro 5G版 12GB+128GB 竞速黑','img/product/details_img/phone_lg/10001399_1566442828100_750x750.png','骁龙855 Plus，4500mAh超大电池，44W超快闪充，4800万超广角AI三摄（不支持5G网络）','3198'),
+(NULL,'iQOO Pro 5G版 12GB+128GB 竞速黑','img/product/details_img/phone_lg/10001399_1566442828607_750x750.png','骁龙855 Plus，4500mAh超大电池，44W超快闪充，4800万超广角AI三摄（不支持5G网络）','3198'),
 (NULL,'iQOO Pro 5G版 12GB+128GB 竞速黑','img/product/details_img/phone_lg/10001399_1566442828100_750x750.png','骁龙855 Plus，4500mAh超大电池，44W超快闪充，4800万超广角AI三摄（不支持5G网络）','3198'),
+(NULL,'iQOO Pro 5G版 12GB+128GB 竞速黑','img/product/details_img/phone_lg/10001399_1566442828607_750x750.png','骁龙855 Plus，4500mAh超大电池，44W超快闪充，4800万超广角AI三摄（不支持5G网络）','3198'),
 (NULL,'iQOO Pro 5G版 12GB+128GB 竞速黑','img/product/details_img/phone_lg/10001399_1566442828100_750x750.png','骁龙855 Plus，4500mAh超大电池，44W超快闪充，4800万超广角AI三摄（不支持5G网络）','3198'),
+(NULL,'iQOO Pro 5G版 12GB+128GB 竞速黑','img/product/details_img/phone_lg/10001399_1566442828607_750x750.png','骁龙855 Plus，4500mAh超大电池，44W超快闪充，4800万超广角AI三摄（不支持5G网络）','3198'),
 (NULL,'iQOO Pro 5G版 12GB+128GB 竞速黑','img/product/details_img/phone_lg/10001399_1566442828100_750x750.png','骁龙855 Plus，4500mAh超大电池，44W超快闪充，4800万超广角AI三摄（不支持5G网络）','3198'),
+(NULL,'iQOO Pro 5G版 12GB+128GB 竞速黑','img/product/details_img/phone_lg/10001399_1566442828607_750x750.png','骁龙855 Plus，4500mAh超大电池，44W超快闪充，4800万超广角AI三摄（不支持5G网络）','3198'),
 (NULL,'iQOO Pro 5G版 12GB+128GB 竞速黑','img/product/details_img/phone_lg/10001399_1566442828100_750x750.png','骁龙855 Plus，4500mAh超大电池，44W超快闪充，4800万超广角AI三摄（不支持5G网络）','3198'),
-(NULL,'iQOO Pro 5G版 12GB+128GB 竞速黑','img/product/details_img/phone_lg/10001399_1566442828100_750x750.png','骁龙855 Plus，4500mAh超大电池，44W超快闪充，4800万超广角AI三摄（不支持5G网络）','3198'),
-(NULL,'iQOO Pro 5G版 12GB+128GB 竞速黑','img/product/details_img/phone_lg/10001399_1566442828100_750x750.png','骁龙855 Plus，4500mAh超大电池，44W超快闪充，4800万超广角AI三摄（不支持5G网络）','3198'),
-(NULL,'iQOO Pro 5G版 12GB+128GB 竞速黑','img/product/details_img/phone_lg/10001399_1566442828100_750x750.png','骁龙855 Plus，4500mAh超大电池，44W超快闪充，4800万超广角AI三摄（不支持5G网络）','3198'),
-(NULL,'iQOO Pro 5G版 12GB+128GB 竞速黑','img/product/details_img/phone_lg/10001399_1566442828100_750x750.png','骁龙855 Plus，4500mAh超大电池，44W超快闪充，4800万超广角AI三摄（不支持5G网络）','3198'),
-(NULL,'iQOO Pro 5G版 12GB+128GB 竞速黑','img/product/details_img/phone_lg/10001399_1566442828100_750x750.png','骁龙855 Plus，4500mAh超大电池，44W超快闪充，4800万超广角AI三摄（不支持5G网络）','3198'),
+(NULL,'iQOO Pro 5G版 12GB+128GB 竞速黑','img/product/details_img/phone_lg/10001399_1566442828607_750x750.png','骁龙855 Plus，4500mAh超大电池，44W超快闪充，4800万超广角AI三摄（不支持5G网络）','3198'),
 (NULL,'iQOO Pro 5G版 12GB+128GB 竞速黑','img/product/details_img/phone_lg/10001399_1566442828100_750x750.png','骁龙855 Plus，4500mAh超大电池，44W超快闪充，4800万超广角AI三摄（不支持5G网络）','3198');
 
 /*手机型号家族*/

@@ -1,4 +1,5 @@
 <template>
+<div>
   <div class="mycolor">
     <div class="container">
       <div id="content" class="d-flex">
@@ -14,21 +15,69 @@
       <a href="#">更多场次></a>
     </div>
       <div class="prent">
-        <div class="img_carousel">
-        <li id="lunbo" v-for="(item,i) of list" :key="i">
-          <img class="mt-5" style="width:172px;height:172px;" :src="'http://127.0.0.1:3000/'+item.img" alt="">
-          <span>
-            <p class="px-4">{{item.sname}}</p>
-            <p class="px-4">{{item.title}}</p>
-            <p class="px-4 text-danger h4">¥{{item.pic.toFixed(2)}}</p>
-          </span>
-        </li>
+        <div class="prent_img">                
+           <ul id="ul" class="img_carousel p-0" :style="{'margin-left':ulMarginLeft,width:ulWidth}">
+            <li id="lunbo" v-for="(item,i) of list" :key="i">
+              <img class="mt-5" style="width:172px;height:172px;" :src="'http://127.0.0.1:3000/'+item.img" alt="">
+              <span>
+                <p class="px-4">{{item.sname}}</p>
+                <p class="px-4">{{item.title}}</p>
+                <p class="px-4 text-danger h4">¥{{item.pic.toFixed(2)}}</p>
+             </span>
+            </li>
+          </ul>
+        </div>
+            <span @click="move(-1)" class="icon_previous"><img src="../../assets/左箭头.png" alt=""></span>
+            <span @click="move(1)" class="icon_next"><img src="../../assets/右箭头.png" alt=""></span>
       </div>
-       <span @click="previous()" class="icon_previous"><img src="../../assets/左箭头.png" alt=""></span>
-        <span @click="next()" class="icon_next"><img src="../../assets/右箭头.png" alt=""></span>
-      </div>
+        <h3 class="my-5">热卖专区</h3>
+         <div class="re_mai mb-5">
+           <div class="zoom">
+             <img :src="'http://127.0.0.1:3000/'+remai[0].rimg" alt="">
+             <p class="py-3 h5">{{remai[0].rname}}</p>
+             <p class="py-3">{{remai[0].rtitle}}</p>
+             <p class="h5 text-danger">¥{{remai[0].rpic}}</p>
+           </div>
+            <div class="mx-2 zoom">
+             <img :src="'http://127.0.0.1:3000/'+remai[1].rimg" alt="">
+             <p class="py-3 h5">{{remai[1].rname}}</p>
+             <p class="py-3">{{remai[1].rtitle}}</p>
+             <p class="h5 text-danger">¥{{remai[1].rpic}}</p>
+           </div>
+           <div class="zoom">
+             <img :src="'http://127.0.0.1:3000/'+remai[2].rimg" alt="">
+             <p class="py-3 h5">{{remai[2].rname}}</p>
+             <p class="py-3">{{remai[2].rtitle}}</p>
+             <p class="h5 text-danger">¥{{remai[2].rpic}}</p>
+           </div>
+         </div>
+         <h3 class="my-5">精品配件</h3>
+         <div class="jp_content">
+            <div class="mb-2 zoom" v-for="(item,i) of list2" :key="i">
+              <img :src="'http://127.0.0.1:3000/'+item.bimg" alt="">
+              <p class="h5 py-3">{{item.bname}}</p>
+              <p class="py-2">{{item.btitle}}</p>
+              <p class="text-danger h5">¥{{item.bpic.toFixed(2)}}</p>
+            </div>
+         </div>
     </div>
   </div>
+   <div class="brand my-5 d-flex justify-content-center">
+           <ul class="list-unstyled d-flex justify-content-between" style="width:1200px;">
+             <li>
+               <img src="../../assets/正版.png" alt=""><span class="h5 ml-3">官方正品</span>
+             </li>
+             <li>
+               <img src="../../assets/快递.png" alt=""><span class="h5 ml-3">顺丰极速送达</span>
+             <li>
+               <img src="../../assets/心爱心.png" alt=""><span class="h5 ml-3">全国联保</span>
+             </li>
+             <li>
+               <img src="../../assets/闪电.png" alt=""><span class="h5 ml-3">镭雕定制</span>
+             </li>
+           </ul>
+         </div>
+</div>
 </template>
 <script>
 export default {
@@ -38,29 +87,44 @@ export default {
       h:"",
       m:"",
       s:"",
-      list:[]
-     
+      list:[],
+      list2:[],
+      tiems:0,
+      ulWidth:0,
+      remai:[
+        {
+          rimg:"",
+          rname:"",
+          rpic:0,
+          rtitle:""
+        },
+        {
+          rimg:"",
+          rname:"",
+          rpic:0,
+          rtitle:""
+        },
+        {
+          rimg:"",
+          rname:"",
+          rpic:0,
+          rtitle:""
+        }
+      ]
+    }
+  },
+  computed:{
+    ulMarginLeft(){
+      return this.tiems*-302+"px";
     }
   },
   methods: {
-    previous(){
-      var div=document.getElementsByClassName("img_carousel")[0]
-      console.log(div);
-      var lis=div.getElementsByTagName("li");
-      console.log(lis);
-      for(let i=0;i<lis.length;i++){
-        lis[i].style.marginLeft="-100px";
-      }
-      // var mgleft=292;
-      // if(li.style.marginLeft){
-      //   li.style.marginLeft=parseInt(li.style.marginLeft)+mgleft+"px";
-      // }else{
-      //   li.style.marginLeft=mgleft+"px";
-      // }
-    },
-    next(){
-      alert("下一列");
-    },
+   move(i){
+       if(i==-1&&this.tiems!=0 || i==1&&this.tiems<this.list.length-4){
+         this.tiems+=i;
+       }
+    
+   },
     countTime(){
       //获取当前时间
       var date= new Date();
@@ -84,21 +148,61 @@ export default {
       this.axios.get(url).then(result=>{
         console.log(result.data.data);
         this.list=result.data.data.result1;
+        this.remai=result.data.data.result3;
+        this.list2=result.data.data.result4;
+        this.ulWidth=result.data.data.result1.length*292+"px";
       })
     } 
   },
-  created() {
+  created:function() {
     this.countTime();
     this.loadMore();
   },
 }
 </script>
 <style scoped>
+.zoom{
+  transition: all .2s linear;
+}
+.zoom:hover{
+  transform: translate3d(0,-2px,0);
+  box-shadow:0 15px 30px rgb(0,0,0,.1);
+}
+.brand{
+  width:100%;
+}
+.brand>ul{
+  padding-bottom:10px;
+   border-bottom:1px solid #ccc;
+}
+.jp_content>div{
+  width:292px;height:380px;
+  background: #fff;
+}
+.jp_content>div:nth-child(odd){
+  margin-right:10px;
+}
+.jp_content>div:nth-child(3){
+  margin-left:10px;
+  
+}
+.jp_content>div:nth-child(7){
+  margin-left: 10px;
+}
+.jp_content>div>img{
+  width:172px;height:172px;
+}
+.jp_content{
+  display: flex;
+  width:1200px;
+  flex-wrap: wrap;
+}
 .container{
   width:70%;
 }
 .prent{
   position: relative;
+  width:100%;
 }
 .icon_next{
   position: absolute;
@@ -108,11 +212,28 @@ export default {
   position: absolute;
   left:-40px;top:200px;
 }
+.prent_img{
+  width:1200px;height:380px;
+  overflow: hidden;
+}
 .img_carousel{
   margin-top:10px;
-  width:1200px;height:390px;
   display: flex;
-  overflow: hidden;
+  transition:margin-left .5s linear;
+}
+.re_mai{
+  display: flex;
+  justify-content: space-between;
+  width:1200px;
+}
+.re_mai>div{
+  width:400px;height:500px;
+  background: #fff;
+  box-sizing: border-box;
+}
+.re_mai>div>img{
+  width:200px;height:200px;
+  margin-top:58px;
 }
 .img_carousel>li{
   margin-right:10px;

@@ -62,7 +62,9 @@ server.get("/home",(req,res)=>{
 server.get("/product",(req,res)=>{
     var results={
         result1:[],
-        result2:[]
+        result2:[],
+        result3:[],
+        result4:[]
     };
     var class_id=req.query.class_id;
     var sql="SELECT * FROM snap_up";
@@ -73,7 +75,17 @@ server.get("/product",(req,res)=>{
         pool.query(sql1,[class_id],(err,result)=>{
             if(err) throw err;
             results.result2=result;
-            res.send({code:1,data:results});
+            var sql2="SELECT * FROM re_mai"
+            pool.query(sql2,(err,result)=>{
+                if(err) throw err;
+                results.result3=result;
+                var sql3="SELECT * FROM boutique";
+                pool.query(sql3,(err,result)=>{
+                    if(err) throw err;
+                    results.result4=result;
+                    res.send({code:1,data:results});
+                })
+            }) 
         })
     })
 })
